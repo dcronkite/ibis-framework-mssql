@@ -1,0 +1,29 @@
+[build-system]
+requires = ['setuptools>=77']
+build-backend = 'setuptools.build_meta'
+
+[project]
+name = 'ibis-framework-mssql'
+version = '0.1.0'
+description = 'Experimental MSSQL temporary-table fix for ibis-framework'
+readme = 'README.md'
+requires-python = '>=3.11'
+dependencies = [
+    'ibis-framework[mssql]==12.0.0',
+]
+
+[project.entry-points.'ibis.backends']
+mssql_temp = 'ibis_framework_mssql'
+
+[tool.setuptools.packages.find]
+where = ['src']
+include = ['ibis_framework_mssql*']
+
+[tool.pytest.ini_options]
+testpaths = ['tests']
+markers = ['integration: requires an explicitly configured SQL Server connection']
+
+[dependency-groups]
+dev = [
+    'pytest>=9.1.1',
+]
