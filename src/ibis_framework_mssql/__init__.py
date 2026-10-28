@@ -7,7 +7,7 @@ from ibis.backends.sql.compilers.mssql import MSSQLCompiler
 
 from ibis_framework_mssql._version import __version__
 
-__all__ = ['Backend']
+__all__ = ['Backend', '__version__']
 
 
 def _temp_name(name: str) -> str:
